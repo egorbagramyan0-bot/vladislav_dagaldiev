@@ -1,0 +1,5 @@
+/* Clear default Vite template styles */
+main {
+  width: 100%;
+  overflow-x: hidden;
+}

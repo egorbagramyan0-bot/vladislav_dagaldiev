@@ -1,0 +1,309 @@
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-color); /* Light Warm White background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: calc(var(--header-height) + 60px) 0 80px;
+}
+
+/* Subtly animated gradient background for premium look */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(190, 151, 91, 0.04) 0%, transparent 70%); /* Antique Champagne Gold glow */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Giant full-width name directly under the navbar - guaranteed single line */
+.hero-giant-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(24px, 7.0vw, 106px); /* Reduced further to ensure alignment with the photo corner */
+  font-weight: 400; /* Bebas Neue baseline */
+  color: var(--dark-accent); /* Graphite Black */
+  text-transform: uppercase;
+  letter-spacing: -0.015em; /* Tight letter spacing for editorial design */
+  line-height: 0.85;
+  margin-bottom: 55px; /* Increased margin to balance the 1.3x vertical scale */
+  width: 100%;
+  text-align: left;
+  white-space: nowrap; /* Forces text to remain on a single line */
+  overflow: visible;
+  display: inline-block;
+  transform: scaleY(1.3); /* Stretch vertically upwards */
+  transform-origin: left top;
+}
+
+/* Tagline Subheading/Offer inside the left content block */
+.hero-tagline {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.4vw, 31px); /* Slightly reduced to fit the new tagline text on a single line */
+  font-weight: 800; /* ExtraBold */
+  line-height: 1.25;
+  color: var(--text-color); /* Primary dark text */
+  position: relative;
+  top: -265px; /* Visual shift up only, without pulling up the rest of the layout */
+  margin-bottom: 28px; /* Balanced gap before the description starts */
+  text-align: left;
+  text-transform: none; /* Keep natural case for high-fashion feel */
+  letter-spacing: -0.015em;
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Grid layout for the description and images */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr; /* Slightly larger image side to make photos the central element */
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 650px;
+  text-align: left;
+}
+
+/* Smaller description text as requested by the user */
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(16px, 1.6vw, 19px);
+  color: var(--text-muted); /* Clean secondary text color */
+  margin-bottom: 40px;
+  max-width: 500px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Action button overrides for new light background */
+.hero-actions .btn-hero-cta {
+  background-color: var(--accent-gold); /* Antique Champagne Gold */
+  color: var(--dark-accent); /* Noir Graphite */
+  border-color: var(--accent-gold);
+  padding: 16px 32px;
+  font-size: 15px; /* Slightly increased size */
+  font-weight: 500;
+  border-radius: 8px; /* Slightly rounded, streamlined corners */
+  box-shadow: 0 10px 30px rgba(255, 90, 9, 0.15); /* Sleek orange glow shadow */
+}
+
+.hero-actions .btn-hero-cta:hover {
+  background-color: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  color: var(--dark-accent);
+}
+
+.hero-actions .btn-hero-sec {
+  padding: 16px 32px;
+  font-size: 15px; /* Slightly increased size */
+  background-color: transparent;
+  color: var(--dark-accent);
+  border: 1px solid var(--accent-gold);
+  border-radius: 8px; /* Slightly rounded, streamlined corners */
+}
+
+.hero-actions .btn-hero-sec:hover {
+  border-color: var(--dark-accent);
+  background-color: var(--dark-accent);
+  color: var(--bg-color);
+}
+
+/* Right side Image collage block */
+.hero-image-pane {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Overlapping photo collage layout - main photo is large, secondary overlays it on the middle-right */
+.hero-images-collage {
+  position: relative;
+  display: inline-block;
+  padding-right: 80px; /* Space for the overlay image on the right side */
+}
+
+.hero-image-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  line-height: 0;
+  background-color: transparent;
+}
+
+.wrapper-primary {
+  z-index: 1;
+  max-height: 75vh;
+  max-width: 100%;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color); /* Premium border style */
+}
+
+.wrapper-secondary {
+  position: absolute;
+  top: 60%; /* Lowered further to overlap the bottom section */
+  right: 0; /* Align with the right side of padding */
+  width: 38%; /* Small, elegant size overlaying primary */
+  z-index: 3;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+}
+
+/* Bright, natural image formatting - zero dimming overlays */
+.hero-img {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  opacity: 1 !important;
+  filter: none !important; /* Fully bright and natural, no dark overlays */
+}
+
+.img-primary {
+  max-height: 80vh;
+  max-width: 100%;
+}
+
+.img-secondary {
+  width: 100%;
+  height: auto;
+}
+
+/* Asymmetric decorative frame */
+.hero-image-frame {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid rgba(220, 202, 181, 0.25); /* Champagne Beige */
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: -1;
+  transition: var(--transition-smooth);
+}
+
+.hero-image-wrapper:hover .hero-image-frame {
+  transform: translate(6px, 6px);
+  border-color: var(--accent-gold);
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 2;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+}
+
+.hero-badge span {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: rgba(14, 15, 17, 0.35); /* Muted Noir Graphite for light background */
+  font-weight: 400;
+  display: inline-block;
+}
+
+/* Responsiveness */
+@media (max-width: 991px) {
+  .hero-section {
+    height: auto;
+    padding: calc(var(--header-height) + 40px) 0 80px;
+  }
+  
+  .hero-giant-title {
+    text-align: center;
+    transform-origin: center top;
+    margin-bottom: 30px;
+  }
+
+  .hero-tagline {
+    position: static;
+    top: 0;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 24px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-content {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .hero-description {
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-image-pane {
+    order: -1; /* Place collage on top on mobile */
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .hero-images-collage {
+    padding-right: 40px; /* Less right space on smaller devices */
+  }
+
+  .wrapper-secondary {
+    top: 60%; /* Lowered further on mobile viewports */
+    right: 0;
+    width: 38%;
+  }
+  
+  .hero-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn-hero-cta, .btn-hero-sec {
+    width: 100%;
+  }
+}
