@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Lenis from 'lenis'
 import PageTransitionLoader from './components/PageTransitionLoader'
 import Navbar from './components/Navbar'
@@ -9,8 +9,10 @@ import Quiz from './components/Quiz'
 import Reviews from './components/Reviews'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import PrivacyPage from './components/PrivacyPage'
 
 function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname)
   useEffect(() => {
     // 1. Initialize Lenis Smooth Scroll with premium expo-out easing curve
     const lenisInstance = new Lenis({
@@ -61,26 +63,55 @@ function App() {
       elements.forEach((el) => revealObserver.observe(el))
     }, 250)
 
-    // 4. Intercept anchor links navigation to slide dynamically via Lenis scroll
-    const handleAnchorClick = (e) => {
-      const targetLink = e.target.closest('a[href^="#"]')
+    // 4. Intercept link clicks to route inside the app or scroll smoothly
+    const handleLinkClick = (e) => {
+      const targetLink = e.target.closest('a')
       if (!targetLink) return
 
       const href = targetLink.getAttribute('href')
-      if (href === '#') return
+      if (!href) return
 
-      const targetEl = document.querySelector(href)
-      if (targetEl) {
+      if (href.startsWith('#')) {
+        if (href === '#') return
+        if (window.location.pathname !== '/') {
+          e.preventDefault()
+          window.history.pushState({}, '', '/')
+          setCurrentPath('/')
+          setTimeout(() => {
+            const targetEl = document.querySelector(href)
+            if (targetEl && lenisInstance) {
+              lenisInstance.scrollTo(targetEl, {
+                offset: 0,
+                duration: 1.4,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+              })
+            }
+          }, 100)
+        } else {
+          const targetEl = document.querySelector(href)
+          if (targetEl) {
+            e.preventDefault()
+            lenisInstance.scrollTo(targetEl, {
+              offset: 0,
+              duration: 1.4,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+            })
+          }
+        }
+      } else if (href.startsWith('/')) {
         e.preventDefault()
-        lenisInstance.scrollTo(targetEl, {
-          offset: 0,
-          duration: 1.4,
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-        })
+        window.history.pushState({}, '', href)
+        setCurrentPath(href)
+        window.scrollTo({ top: 0, behavior: 'instant' })
       }
     }
 
-    document.addEventListener('click', handleAnchorClick)
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname)
+    }
+
+    document.addEventListener('click', handleLinkClick)
+    window.addEventListener('popstate', handlePopState)
 
     // 6. Clean up on unmount
     return () => {
@@ -90,22 +121,27 @@ function App() {
       lenisInstance.destroy()
       revealObserver.disconnect()
       resizeObserver.disconnect()
-      document.removeEventListener('click', handleAnchorClick)
+      document.removeEventListener('click', handleLinkClick)
+      window.removeEventListener('popstate', handlePopState)
     }
   }, [])
 
   return (
     <>
       <PageTransitionLoader />
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Videos />
-        <Quiz />
-        <Reviews />
-        <FAQ />
-      </main>
+      {currentPath !== '/privacy' && <Navbar />}
+      {currentPath === '/privacy' ? (
+        <PrivacyPage setCurrentPath={setCurrentPath} />
+      ) : (
+        <main>
+          <Hero />
+          <About />
+          <Videos />
+          <Quiz />
+          <Reviews />
+          <FAQ />
+        </main>
+      )}
       <Footer />
     </>
   )

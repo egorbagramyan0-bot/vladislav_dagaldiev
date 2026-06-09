@@ -97,7 +97,7 @@ export default function Footer() {
               </p>
             </div>
             <div className="footer-bottom-links">
-              <a href="#privacy" className="footer-bottom-link">Политика конфиденциальности</a>
+              <a href="/privacy" className="footer-bottom-link">Политика конфиденциальности</a>
               <span className="bullet-separator">•</span>
               <a href="#consent" className="footer-bottom-link">{"Согласие на\u00a0обработку персональных данных"}</a>
             </div>
