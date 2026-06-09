@@ -1,0 +1,118 @@
+.star-border-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Override default .btn class properties when applied to StarBorder */
+.star-border-container.btn {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.border-gradient-bottom,
+.border-gradient-top {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  mix-blend-mode: screen;
+}
+
+.border-gradient-top {
+  top: 0;
+  left: 0;
+  animation: star-border-slide-left linear infinite;
+}
+
+.border-gradient-bottom {
+  bottom: 0;
+  right: 0;
+  animation: star-border-slide-right linear infinite;
+}
+
+.inner-content {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #0A0A0B; /* Deep Space Black */
+  color: var(--text-color);
+  border-radius: inherit;
+  transition: var(--transition-fast);
+  padding: 15px 32px; /* Standard button padding */
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Custom Hover Effects for Primary vs Secondary Button */
+.btn-hero-cta .inner-content {
+  background: linear-gradient(135deg, rgba(255, 90, 9, 0.16) 0%, rgba(255, 90, 9, 0.06) 100%), #121214;
+  border: 1px solid rgba(255, 90, 9, 0.4);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(255, 90, 9, 0.1);
+}
+
+.btn-hero-cta:hover .inner-content {
+  background: linear-gradient(135deg, rgba(255, 90, 9, 0.26) 0%, rgba(255, 90, 9, 0.12) 100%), #121214;
+  border: 1px solid rgba(255, 90, 9, 0.7);
+  color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(255, 90, 9, 0.35); /* Strong orange hover glow */
+}
+
+.btn-hero-sec .inner-content {
+  background-color: rgba(10, 10, 11, 0.85); /* Semi-transparent */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-hero-sec:hover .inner-content {
+  background-color: rgba(255, 165, 0, 0.06); /* Warmer gold hover */
+  color: var(--dark-accent);
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.15); /* Warmer gold hover glow */
+}
+
+@keyframes star-border-slide-left {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes star-border-slide-right {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 479px) {
+  .star-border-container.btn {
+    width: 100%;
+  }
+  .inner-content {
+    width: 100%;
+    padding: 14px 24px;
+  }
+}

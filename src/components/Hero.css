@@ -37,20 +37,21 @@
 
 /* Giant full-width name directly under the navbar - guaranteed single line */
 .hero-giant-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(24px, 7.0vw, 106px); /* Reduced further to ensure alignment with the photo corner */
-  font-weight: 400; /* Bebas Neue baseline */
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(26px, 7.6vw, 118px); /* Increased font size as requested */
+  font-weight: 700; /* Oswald bold */
   color: var(--dark-accent); /* Graphite Black */
   text-transform: uppercase;
-  letter-spacing: -0.015em; /* Tight letter spacing for editorial design */
+  letter-spacing: 0.01em; /* Adjusted letter-spacing for Oswald */
   line-height: 0.85;
-  margin-bottom: 55px; /* Increased margin to balance the 1.3x vertical scale */
+  margin-top: -20px; /* Pull the title slightly higher towards the navbar */
+  margin-bottom: 60px; /* Balanced margin for the 1.5x vertical scale */
   width: 100%;
   text-align: left;
   white-space: nowrap; /* Forces text to remain on a single line */
   overflow: visible;
   display: inline-block;
-  transform: scaleY(1.3); /* Stretch vertically upwards */
+  transform: scaleY(1.5); /* Stretch vertically upwards even more */
   transform-origin: left top;
 }
 
@@ -62,7 +63,7 @@
   line-height: 1.25;
   color: var(--text-color); /* Primary dark text */
   position: relative;
-  top: -265px; /* Visual shift up only, without pulling up the rest of the layout */
+  top: -235px; /* Visual shift up only, without pulling up the rest of the layout */
   margin-bottom: 28px; /* Balanced gap before the description starts */
   text-align: left;
   text-transform: none; /* Keep natural case for high-fashion feel */

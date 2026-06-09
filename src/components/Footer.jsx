@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="cta-content">
             <h2 className="cta-title">Начнём подготовку вашего идеального вечера</h2>
             <p className="cta-description">
-              Расскажите о вашем мероприятии, а я помогу сделать его именно таким, каким вы его представляете.
+              {"Расскажите о\u00a0вашем мероприятии, а\u00a0я помогу сделать его именно таким, каким вы\u00a0его представляете."}
             </p>
             <div className="cta-actions">
               <a href="#quiz" className="btn btn-primary cta-btn">
@@ -22,7 +22,7 @@ export default function Footer() {
                 rel="noopener noreferrer" 
                 className="btn btn-secondary cta-btn telegram-cta-btn"
               >
-                Написать в Telegram
+                {"Написать в\u00a0Telegram"}
               </a>
             </div>
           </div>
@@ -35,9 +35,9 @@ export default function Footer() {
           <div className="footer-grid reveal-element">
             {/* Left Column: Brand Info */}
             <div className="footer-col footer-brand">
-              <span className="footer-brand-title">Владислав / Свадебный ведущий</span>
+              <span className="footer-brand-title">Владислав / Ведущий мероприятий</span>
               <p className="footer-brand-signature">
-                Современные свадьбы без шаблонов и навязчивых конкурсов.
+                {"Современные мероприятия без\u00a0шаблонов и\u00a0навязчивых конкурсов."}
               </p>
             </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="footer-col footer-nav">
               <span className="footer-label">Навигация</span>
               <ul className="footer-nav-list">
-                <li><a href="#about" className="footer-link">Обо мне</a></li>
+                <li><a href="#about" className="footer-link">{"Обо\u00a0мне"}</a></li>
                 <li><a href="#about" className="footer-link">Формат работы</a></li>
                 <li><a href="#quiz" className="footer-link">Стоимость</a></li>
                 <li><a href="#videos" className="footer-link">Фото и видео</a></li>
@@ -68,13 +68,18 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/79185132940" target="_blank" rel="noopener noreferrer" className="footer-link">
-                    WhatsApp
+                  <a href="https://api.whatsapp.com/send/?phone=79185132940&text=Здравствуйте%21+Пишу+вам+с+вашего+сайта.+Скажите%2C+пожалуйста%2C+свободна+ли+у+Вас+дата+...&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="footer-link">
+                    WhatsApp*
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/vladislavdagaldiev" target="_blank" rel="noopener noreferrer" className="footer-link">
+                  <a href="https://www.instagram.com/vladislav_dagaldiev/" target="_blank" rel="noopener noreferrer" className="footer-link">
                     Instagram*
+                  </a>
+                </li>
+                <li>
+                  <a href="https://vk.com/vladislavdagaldiev" target="_blank" rel="noopener noreferrer" className="footer-link">
+                    ВКонтакте
                   </a>
                 </li>
               </ul>
@@ -88,13 +93,13 @@ export default function Footer() {
                 © 2026 Владислав. Все права защищены.
               </p>
               <p className="instagram-note">
-                *Компания Meta признана экстремистской на территории РФ
+                {"*Компания Meta признана экстремистской на\u00a0территории РФ"}
               </p>
             </div>
             <div className="footer-bottom-links">
               <a href="#privacy" className="footer-bottom-link">Политика конфиденциальности</a>
               <span className="bullet-separator">•</span>
-              <a href="#consent" className="footer-bottom-link">Согласие на обработку персональных данных</a>
+              <a href="#consent" className="footer-bottom-link">{"Согласие на\u00a0обработку персональных данных"}</a>
             </div>
           </div>
         </div>

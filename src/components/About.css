@@ -53,6 +53,7 @@
   display: block;
   object-fit: contain;
   transition: var(--transition-smooth);
+  filter: none !important;
 }
 
 .about-image-wrapper:hover .about-image {

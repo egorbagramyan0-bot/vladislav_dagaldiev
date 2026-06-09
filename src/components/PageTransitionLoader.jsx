@@ -29,7 +29,7 @@ export default function PageTransitionLoader() {
       <div className="loader-content">
         <h1 className="loader-title">Владислав Дагалдиев</h1>
         <div className="loader-subtitle-wrapper">
-          <p className="loader-subtitle">Ведущий премиальных событий</p>
+          <p className="loader-subtitle">Ведущий мероприятий</p>
           <div className="loader-line"></div>
         </div>
       </div>

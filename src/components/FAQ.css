@@ -44,7 +44,7 @@
 
 .faq-accordion-item {
   border-bottom: 1px solid var(--border-color);
-  transition: var(--transition-fast);
+  transition: border-color 0.25s ease;
 }
 
 .faq-question-btn {
@@ -58,7 +58,7 @@
   cursor: pointer;
   text-align: left;
   color: var(--text-color);
-  transition: var(--transition-fast);
+  transition: color 0.25s ease;
 }
 
 .faq-question-btn:hover {
@@ -81,7 +81,7 @@
   height: 24px;
   flex-shrink: 0;
   color: var(--accent-gold); /* Dark Amber Orange */
-  transition: var(--transition-fast);
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-svg-icon {
@@ -91,7 +91,7 @@
 }
 
 .faq-line-v {
-  transition: transform 0.4s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   transform-origin: center;
 }
 
@@ -106,23 +106,47 @@
 
 /* Accordion details slide transition */
 .faq-answer-wrapper {
+  max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-accordion-item.open .faq-answer-wrapper {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 12px;
+  padding-bottom: 36px;
 }
 
 .faq-answer-content {
+  overflow: hidden;
   font-family: 'Inter', sans-serif;
-  padding-bottom: 36px;
   font-size: clamp(15px, 1.5vw, 17px);
-  color: var(--text-muted);
+  color: var(--text-color);
   line-height: 1.8;
   max-width: 800px;
   font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.faq-answer-content p {
+  color: var(--text-color) !important;
+  margin: 0;
 }
 
 @media (max-width: 768px) {
   .faq-section {
-    padding: 100px 0;
+    padding: 60px 0;
+  }
+  .faq-header {
+    margin-bottom: 40px;
   }
   .faq-question-btn {
     padding: 24px 0;
@@ -132,6 +156,10 @@
   }
   .faq-answer-content {
     font-size: 14px;
+    padding-bottom: 0;
+  }
+  .faq-accordion-item.open .faq-answer-wrapper {
+    padding-top: 8px;
     padding-bottom: 24px;
   }
 }

@@ -27,41 +27,41 @@ export default function Videos() {
   const videoClips = [
     {
       id: 1,
-      title: "Зачем ходить на встречу с ведущим",
+      title: "Зачем ходить на\u00a0встречу с\u00a0ведущим",
       category: "Полезно знать",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-wedding-couple-walking-in-a-forest-41604-large.mp4",
-      posterUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+      videoUrl: "/video/video1.mp4",
+      posterUrl: "/pre1.jpg"
     },
     {
       id: 2,
-      title: "Что ведущий должен делать на встрече",
+      title: "Что ведущий должен делать на\u00a0встрече",
       category: "Подготовка",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-couple-dancing-at-their-wedding-reception-41618-large.mp4",
-      posterUrl: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+      videoUrl: "/video/video2.mp4",
+      posterUrl: "/pre2.jpg"
     },
     {
       id: 3,
-      title: "Какие интерактивы будут на мероприятии",
+      title: "Какие интерактивы будут на\u00a0мероприятии",
       category: "Программа вечера",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-groomsmen-and-groom-having-fun-before-wedding-41608-large.mp4",
-      posterUrl: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 4,
-      title: "Церемония",
-      category: "Атмосфера праздника",
-      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-bride-and-groom-holding-hands-41602-large.mp4",
-      posterUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80"
+      videoUrl: "/video/video3.mp4",
+      posterUrl: "/pre3.jpg"
     }
   ];
 
   const photoSlides = [
-    { id: 1, src: '/photo1.jpg', title: 'Регистрация', desc: 'Самый волнительный и трогательный момент свадебного дня' },
-    { id: 2, src: '/photo2.jpg', title: 'Первый танец', desc: 'Искренние эмоции молодоженов на танцполе' },
-    { id: 3, src: '/photo3.jpg', title: 'Интерактивы', desc: 'Улыбки, живой смех и сплочение гостей всех возрастов' },
-    { id: 4, src: '/photo4.jpg', title: 'Детали вечера', desc: 'Особое внимание к декору и элементам оформления' },
-    { id: 5, src: '/photo5.jpg', title: 'Объединение', desc: 'Лёгкая и тёплая атмосфера семейного торжества' },
-    { id: 6, src: '/photo6.jpg', title: 'Яркий финал', desc: 'Красивое завершение вечера с бенгальскими огнями' },
+    { id: 1, src: '/gallery/6932b3bd-d4a6-4984-b892-e95dacbf01d8.jpg', title: 'Эмоции', desc: 'Живой смех и\u00a0искренние улыбки гостей' },
+    { id: 2, src: '/gallery/81de910e-fd63-4473-9677-58d0d891eba7.jpg', title: 'Детали', desc: 'Каждая деталь имеет значение' },
+    { id: 3, src: '/gallery/a3f9d227-c77e-423c-b4d1-ed58b1fa9bb1.jpg', title: 'Регистрация', desc: 'Волнительный момент в\u00a0начале события' },
+    { id: 4, src: '/gallery/c23ed83a-6fa7-4f68-963a-4f1be6b55fc1.jpg', title: 'Внимание', desc: 'Индивидуальный подход к\u00a0каждому гостю' },
+    { id: 5, src: '/gallery/d2ccf93b-f40e-4301-9e54-e7582bcf1225.jpg', title: 'Презентация', desc: 'Современные и\u00a0яркие визуальные решения' },
+    { id: 6, src: '/gallery/dba17edd-4515-434a-8d58-0ac597c91f04.jpg', title: 'Коннект', desc: 'Лёгкое общение и\u00a0дружеская атмосфера' },
+    { id: 7, src: '/gallery/Банкет-253_resized.jpg', title: 'Атмосфера', desc: 'Стильное оформление вечернего зала' },
+    { id: 8, src: '/gallery/Банкет-256_resized.jpg', title: 'Вечер', desc: 'Уютное и\u00a0теплое семейное торжество' },
+    { id: 9, src: '/gallery/Банкет-325_resized.jpg', title: 'Динамика', desc: 'Держим темп и\u00a0настроение праздника' },
+    { id: 10, src: '/gallery/Банкет-398_resized.jpg', title: 'Интерактив', desc: 'Улыбки, живой смех и\u00a0сплочение гостей' },
+    { id: 11, src: '/gallery/Банкет-52_resized.jpg', title: 'Событие', desc: 'Яркие эмоции на\u00a0протяжении всего вечера' },
+    { id: 12, src: '/gallery/Банкет-73_resized.jpg', title: 'Танцпол', desc: 'Искренние эмоции героев вечера на\u00a0танцах' },
+    { id: 13, src: '/gallery/Банкет-79_resized.jpg', title: 'Финал', desc: 'Красивое и\u00a0запоминающееся завершение праздника' }
   ];
 
   const checkScroll = () => {
@@ -96,12 +96,13 @@ export default function Videos() {
     setActiveVideo(null);
   };
 
-  // Measure exact wrap boundary based on the position of the 7th element (first of duplicate set)
+  // Measure exact wrap boundary based on the position of the first element of duplicate set
   const updateWrapWidth = () => {
     if (trackRef.current) {
       const track = trackRef.current;
-      if (track.children && track.children.length >= 7) {
-        wrapWidthRef.current = track.children[6].offsetLeft;
+      const len = photoSlides.length;
+      if (track.children && track.children.length >= len + 1) {
+        wrapWidthRef.current = track.children[len].offsetLeft;
       } else {
         wrapWidthRef.current = track.scrollWidth / 2;
       }
@@ -136,12 +137,12 @@ export default function Videos() {
 
     if (W > 0) {
       if (targetTranslate >= W) {
-        startTranslateX.current -= W;
         targetTranslate -= W;
+        startTranslateX.current = targetTranslate;
         startX.current = clientX;
       } else if (targetTranslate < 0) {
-        startTranslateX.current += W;
         targetTranslate += W;
+        startTranslateX.current = targetTranslate;
         startX.current = clientX;
       }
       translateXRef.current = targetTranslate;
@@ -368,7 +369,7 @@ export default function Videos() {
         <div className="container">
           <div className="gallery-header">
             <span className="gallery-category">Галерея</span>
-            <h3 className="gallery-title">Атмосфера в деталях</h3>
+            <h3 className="gallery-title">{"Атмосфера в\u00a0деталях"}</h3>
           </div>
         </div>
         
@@ -490,10 +491,6 @@ export default function Videos() {
                 playsInline
                 className="lightbox-player"
               />
-              <div className="lightbox-meta">
-                <span className="lightbox-meta-category">{activeVideo.category}</span>
-                <h4 className="lightbox-meta-title">{activeVideo.title}</h4>
-              </div>
             </div>
           </div>
         </div>

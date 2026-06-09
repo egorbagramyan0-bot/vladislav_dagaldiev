@@ -24,17 +24,19 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
+  overscroll-behavior-y: none;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
   color-scheme: dark; /* Dark browser UI components */
 }
 
 body {
-  overflow-x: hidden;
+  overscroll-behavior-y: none;
+  overflow-x: clip;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Inter', sans-serif;

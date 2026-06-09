@@ -16,15 +16,25 @@ function App() {
     const lenisInstance = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 0.9,
-      smoothTouch: false, // Keep native touch scrolling on mobile to respect gestures
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      syncTouch: false, // Keep native touch scrolling on mobile to respect gestures
       infinite: false,
     })
 
-    // 2. Setup the requestAnimationFrame rendering loop
+    // 2. Setup ResizeObserver with debounce to update Lenis when the page height changes (e.g. FAQ accordions open/close, images load, etc.) without layout thrashing
+    let resizeTimeout;
+    const resizeObserver = new ResizeObserver(() => {
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        lenisInstance.resize()
+      }, 100)
+    })
+    resizeObserver.observe(document.body)
+
+    // 3. Setup the requestAnimationFrame rendering loop
     let rafId;
     function raf(time) {
       lenisInstance.raf(time)
@@ -72,12 +82,14 @@ function App() {
 
     document.addEventListener('click', handleAnchorClick)
 
-    // 5. Clean up on unmount
+    // 6. Clean up on unmount
     return () => {
       cancelAnimationFrame(rafId)
       clearTimeout(timerId)
+      clearTimeout(resizeTimeout)
       lenisInstance.destroy()
       revealObserver.disconnect()
+      resizeObserver.disconnect()
       document.removeEventListener('click', handleAnchorClick)
     }
   }, [])

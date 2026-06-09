@@ -2,6 +2,8 @@ import React from 'react';
 import './Hero.css';
 import { GodRays } from "@paper-design/shaders-react";
 
+import StarBorder from './StarBorder';
+
 export default function Hero() {
   return (
     <section id="hero" className="hero-section">
@@ -42,29 +44,45 @@ export default function Hero() {
           <div className="hero-content">
             {/* Tagline Subheading/Offer directly under name, inside the content block */}
             <h2 className="hero-tagline fade-up-element delay-1">
-              Легкая атмосфера и живые эмоции,<br />
-              сценарий под Ваше мероприятие
+              {"Легкая атмосфера и\u00a0живые эмоции,"}<br />
+              {"сценарий под\u00a0Ваше мероприятие"}
             </h2>
             
             {/* Smaller description text */}
             <p className="hero-description fade-up-element delay-2">
-              Провожу мероприятия интеллигентно и уверенно, объединяю гостей, держу темп вечера и создаю праздник, в котором комфортно и действительно интересно гостям
+              {"Провожу мероприятия интеллигентно и\u00a0уверенно, объединяю гостей, держу темп вечера и\u00a0создаю праздник, в\u00a0котором комфортно и\u00a0действительно интересно гостям"}
             </p>
             
             <div className="hero-actions fade-up-element delay-3">
-              <a href="#quiz" className="btn btn-primary btn-hero-cta">
+              <StarBorder
+                as="a"
+                href="#quiz"
+                className="btn btn-primary btn-hero-cta"
+                color="#FF5A09"
+                speed="4s"
+                thickness={2}
+              >
                 Рассчитать стоимость
-              </a>
-              <a href="https://t.me/VladislavDagaldiev" target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-hero-sec">
-                Связаться в Telegram
-              </a>
+              </StarBorder>
+              <StarBorder
+                as="a"
+                href="https://t.me/VladislavDagaldiev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary btn-hero-sec"
+                color="#FFA500"
+                speed="8s"
+                thickness={1.5}
+              >
+                {"Связаться в\u00a0Telegram"}
+              </StarBorder>
             </div>
           </div>
           
           <div className="hero-image-pane fade-up-element delay-1">
             <div className="hero-images-collage">
               <div className="hero-image-wrapper wrapper-primary">
-                <img src="/hero8.jpg" alt="Владислав Дагалдиев" className="hero-img img-primary" />
+                <img src="/hero10.png" alt="Владислав Дагалдиев" className="hero-img img-primary" />
                 <div className="hero-image-frame"></div>
               </div>
               <div className="hero-image-wrapper wrapper-secondary">

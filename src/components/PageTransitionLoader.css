@@ -22,13 +22,17 @@
 }
 
 .loader-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 5vw, 56px);
-  font-weight: 400;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(40px, 5.5vw, 66px); /* Increased font size as requested */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   color: var(--text-color);
-  margin-bottom: 15px;
+  margin-bottom: 22px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) scaleY(1.5);
+  transform-origin: center;
+  display: inline-block;
   animation: loaderFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -41,10 +45,10 @@
 
 .loader-subtitle {
   font-family: 'Manrope', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  text-transform: none; /* No caps */
-  letter-spacing: normal;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
   color: var(--text-muted);
   margin-bottom: 8px;
 }
@@ -60,7 +64,7 @@
 @keyframes loaderFadeUp {
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scaleY(1.5);
   }
 }
 
