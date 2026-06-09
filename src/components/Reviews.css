@@ -68,13 +68,26 @@
 }
 
 .reviews-slider {
-  display: flex;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  width: 100%;
 }
 
 .review-slide {
-  flex: 0 0 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease;
+}
+
+.review-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .review-grid {

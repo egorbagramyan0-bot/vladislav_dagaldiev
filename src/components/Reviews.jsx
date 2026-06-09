@@ -94,9 +94,9 @@ export default function Reviews() {
           onTouchMove={reviewsList.length > 1 ? handleTouchMove : undefined}
           onTouchEnd={reviewsList.length > 1 ? handleTouchEnd : undefined}
         >
-          <div className="reviews-slider" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+          <div className="reviews-slider">
             {reviewsList.map((item, idx) => (
-              <div key={idx} className="review-slide">
+              <div key={idx} className={`review-slide ${idx === currentIndex ? 'active' : ''}`}>
                 <div className="review-grid">
                   {/* Visual Portrait */}
                   <div className="review-visual">
