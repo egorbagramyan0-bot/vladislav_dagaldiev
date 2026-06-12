@@ -62,7 +62,9 @@ export default function Hero() {
       <div className="container hero-container">
         {/* Giant full-width title directly below the navbar - single line */}
         <h1 className="hero-giant-title fade-up-element">
-          <AuroraText>Владислав Дагалдиев</AuroraText>
+          <AuroraText>
+            Владислав<span className="hero-desktop-space"> </span><br className="hero-mobile-br" />Дагалдиев
+          </AuroraText>
         </h1>
         
         <div className="hero-grid">
