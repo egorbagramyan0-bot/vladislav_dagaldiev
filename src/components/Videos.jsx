@@ -25,6 +25,13 @@ export default function Videos() {
   const wrapWidthRef = useRef(0); // Exact pixel width of one photo set including gaps
   const isMarqueeVisibleRef = useRef(true); // Track marquee viewport visibility
 
+  const getVideoUrl = (path) => {
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      return path;
+    }
+    return `https://media.githubusercontent.com/media/egorbagramyan0-bot/vladislav_dagaldiev/main/public${path}`;
+  };
+
   const videoClips = [
     {
       id: 1,
@@ -507,7 +514,7 @@ export default function Videos() {
             </button>
             <div className="lightbox-content">
               <video 
-                src={activeVideo.videoUrl} 
+                src={getVideoUrl(activeVideo.videoUrl)} 
                 controls 
                 autoPlay 
                 playsInline
