@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './Videos.css';
 
 export default function Videos() {
@@ -53,6 +53,13 @@ export default function Videos() {
       category: "Программа вечера",
       videoUrl: "/video/video3.mp4",
       posterUrl: "/pre3.jpg"
+    },
+    {
+      id: 4,
+      title: "Церемония",
+      category: "Подарок",
+      videoUrl: "/video/ceremony.mp4",
+      posterUrl: "/vid4.jpg"
     }
   ];
 

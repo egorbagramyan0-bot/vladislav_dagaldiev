@@ -317,12 +317,12 @@
   }
 
   .img-primary {
-    max-height: 44vh !important; /* Increased primary image size for better mobile visual presence */
+    max-height: 44svh !important; /* Increased primary image size for better mobile visual presence */
     width: auto;
   }
 
   .wrapper-primary {
-    max-height: 44vh;
+    max-height: 44svh;
   }
 
   .wrapper-secondary {
@@ -367,7 +367,7 @@
     margin-bottom: 12px !important;
   }
   .img-primary {
-    max-height: 20vh !important;
+    max-height: 20svh !important;
   }
   .wrapper-secondary {
     display: none !important;

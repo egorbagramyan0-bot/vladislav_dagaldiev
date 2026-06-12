@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './PageTransitionLoader.css';
 
 export default function PageTransitionLoader() {
@@ -6,19 +6,45 @@ export default function PageTransitionLoader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Elegant fade out after 1.8s
-    const timerFade = setTimeout(() => {
-      setFadeOut(true);
-    }, 1500);
+    let timeoutFinished = false;
+    let isTransitioned = false;
 
-    // Unmount after animation finishes
-    const timerRemove = setTimeout(() => {
-      setVisible(false);
-    }, 2100);
+    const triggerFadeOut = () => {
+      if (isTransitioned) return;
+      isTransitioned = true;
+      setFadeOut(true);
+      setTimeout(() => {
+        setVisible(false);
+      }, 800); // Matches the 0.8s CSS transition
+    };
+
+    const minTimer = setTimeout(() => {
+      timeoutFinished = true;
+      if (document.readyState === 'complete') {
+        triggerFadeOut();
+      }
+    }, 1000);
+
+    const handleLoad = () => {
+      if (timeoutFinished) {
+        triggerFadeOut();
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      // If document is already loaded, minTimer will run and triggerFadeOut after 1.0s
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
+
+    const maxTimer = setTimeout(() => {
+      triggerFadeOut();
+    }, 2500);
 
     return () => {
-      clearTimeout(timerFade);
-      clearTimeout(timerRemove);
+      clearTimeout(minTimer);
+      clearTimeout(maxTimer);
+      window.removeEventListener('load', handleLoad);
     };
   }, []);
 
@@ -27,10 +53,9 @@ export default function PageTransitionLoader() {
   return (
     <div className={`loader-overlay ${fadeOut ? 'fade-out' : ''}`}>
       <div className="loader-content">
-        <h1 className="loader-title">Владислав Дагалдиев</h1>
-        <div className="loader-subtitle-wrapper">
-          <p className="loader-subtitle">Ведущий мероприятий</p>
-          <div className="loader-line"></div>
+        <h1 className="loader-name">ВЛАДИСЛАВ ДАГАЛДИЕВ</h1>
+        <div className="loader-progress-container">
+          <div className="loader-progress-bar"></div>
         </div>
       </div>
     </div>
