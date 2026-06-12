@@ -10,7 +10,7 @@
 }
 
 .quiz-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.25em;
@@ -20,9 +20,9 @@
 }
 
 .quiz-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: clamp(38px, 4.5vw, 60px);
-  font-weight: 400;
+  font-weight: 900;
   color: var(--dark-accent);
   margin-bottom: 16px;
   text-transform: uppercase;
@@ -102,9 +102,9 @@
 
 /* Included Services List Styles */
 .included-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: 26px;
-  font-weight: 400;
+  font-weight: bold;
   color: var(--dark-accent);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -138,7 +138,7 @@
 }
 
 .included-num {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 800;
   color: var(--accent-gold);
@@ -170,7 +170,7 @@
 }
 
 .quiz-progress-text {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -196,7 +196,7 @@
 
 /* Step Questions */
 .step-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(18px, 2.2vw, 22px);
   font-weight: 700;
   color: var(--dark-accent);
@@ -311,7 +311,7 @@
 }
 
 .input-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -346,7 +346,7 @@
 }
 
 .messenger-btn {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   padding: 12px;
   background: var(--section-alt-bg);
@@ -433,7 +433,7 @@
   font-size: 13.5px;
   font-weight: 600;
   min-width: 120px;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .quiz-nav .btn-primary, .quiz-nav .btn-gold {
@@ -474,11 +474,12 @@
 }
 
 .success-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--dark-accent);
   margin-bottom: 16px;
+  text-transform: uppercase;
 }
 
 .success-desc {

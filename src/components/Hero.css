@@ -37,12 +37,12 @@
 
 /* Giant full-width name directly under the navbar - guaranteed single line */
 .hero-giant-title {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(26px, 7.6vw, 118px); /* Increased font size as requested */
-  font-weight: 700; /* Oswald bold */
+  font-family: 'Druk Cyr', sans-serif;
+  font-size: clamp(34px, 10.1vw, 158px);
+  font-weight: 900; /* Druk Cyr Heavy */
   color: var(--dark-accent); /* Graphite Black */
   text-transform: uppercase;
-  letter-spacing: 0.01em; /* Adjusted letter-spacing for Oswald */
+  letter-spacing: 0.01em;
   line-height: 0.85;
   margin-top: -20px; /* Pull the title slightly higher towards the navbar */
   margin-bottom: 60px; /* Balanced margin for the 1.5x vertical scale */
@@ -57,16 +57,16 @@
 
 /* Tagline Subheading/Offer inside the left content block */
 .hero-tagline {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: clamp(20px, 2.4vw, 31px); /* Slightly reduced to fit the new tagline text on a single line */
-  font-weight: 800; /* ExtraBold */
+  font-weight: bold; /* Druk Cyr Bold */
   line-height: 1.25;
   color: var(--text-color); /* Primary dark text */
   position: relative;
   top: -235px; /* Visual shift up only, without pulling up the rest of the layout */
   margin-bottom: 28px; /* Balanced gap before the description starts */
   text-align: left;
-  text-transform: none; /* Keep natural case for high-fashion feel */
+  text-transform: uppercase;
   letter-spacing: -0.015em;
   width: 100%;
   max-width: 100%;
@@ -166,8 +166,6 @@
   z-index: 1;
   max-height: 75vh;
   max-width: 100%;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
-  border: 1px solid var(--border-color); /* Premium border style */
 }
 
 .wrapper-secondary {
@@ -193,6 +191,7 @@
 .img-primary {
   max-height: 80vh;
   max-width: 100%;
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.25)) !important;
 }
 
 .img-secondary {
@@ -240,26 +239,32 @@
 @media (max-width: 991px) {
   .hero-section {
     height: auto;
-    padding: calc(var(--header-height) + 40px) 0 80px;
+    padding: calc(var(--header-height) + 16px) 0 40px;
   }
   
   .hero-giant-title {
     text-align: center;
     transform-origin: center top;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    font-size: clamp(32px, 8.5vw, 64px) !important;
+    white-space: normal !important; /* Wrap name cleanly on mobile viewports to prevent overflow */
+    transform: none !important; /* Remove vertical scale stretch for clean mobile reading flow */
+    line-height: 1.05;
   }
 
   .hero-tagline {
     position: static;
     top: 0;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 24px;
+    margin-top: 12px;
+    margin-bottom: 16px;
+    font-size: clamp(16px, 4vw, 20px) !important;
+    line-height: 1.35;
   }
 
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 24px;
   }
   
   .hero-content {
@@ -268,12 +273,15 @@
   }
   
   .hero-description {
-    margin: 0 auto 36px;
+    margin: 0 auto 24px;
     text-align: center;
+    font-size: clamp(14px, 3.5vw, 15px);
+    line-height: 1.5;
   }
   
   .hero-actions {
     justify-content: center;
+    gap: 12px;
   }
   
   .hero-image-pane {
@@ -284,13 +292,25 @@
   }
   
   .hero-images-collage {
-    padding-right: 40px; /* Less right space on smaller devices */
+    padding-right: 32px; /* Less right space on smaller devices */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .img-primary {
+    max-height: 32vh !important; /* Limit primary image height significantly on mobile to fit above the fold */
+    width: auto;
+  }
+
+  .wrapper-primary {
+    max-height: 32vh;
   }
 
   .wrapper-secondary {
-    top: 60%; /* Lowered further on mobile viewports */
-    right: 0;
-    width: 38%;
+    top: 55%; /* Lowered further on mobile viewports */
+    right: -10px;
+    width: 35%;
   }
   
   .hero-badge {
@@ -301,10 +321,38 @@
 @media (max-width: 479px) {
   .hero-actions {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
+    width: 100%;
   }
   
   .btn-hero-cta, .btn-hero-sec {
     width: 100%;
   }
 }
+
+@media (max-height: 640px) {
+  .hero-section {
+    padding: calc(var(--header-height) + 12px) 0 20px !important;
+    min-height: 100vh;
+  }
+  .hero-giant-title {
+    margin-bottom: 12px !important;
+  }
+  .hero-tagline {
+    margin-bottom: 12px !important;
+    margin-top: 8px !important;
+  }
+  .hero-description {
+    display: none !important;
+  }
+  .hero-image-pane {
+    margin-bottom: 12px !important;
+  }
+  .img-primary {
+    max-height: 20vh !important;
+  }
+  .wrapper-secondary {
+    display: none !important;
+  }
+}
+

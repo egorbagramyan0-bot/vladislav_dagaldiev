@@ -23,6 +23,7 @@ export default function Videos() {
   const lastTime = useRef(0);
   const currentSpeedRef = useRef(0.8); // Default autoScrollSpeed
   const wrapWidthRef = useRef(0); // Exact pixel width of one photo set including gaps
+  const isMarqueeVisibleRef = useRef(true); // Track marquee viewport visibility
 
   const videoClips = [
     {
@@ -146,7 +147,8 @@ export default function Videos() {
         startX.current = clientX;
       }
       translateXRef.current = targetTranslate;
-      track.style.transform = `translate3d(${-targetTranslate}px, 0, 0)`;
+      // Round translate3d pixel value to completely eliminate subpixel rendering stutters
+      track.style.transform = `translate3d(${-Math.round(targetTranslate)}px, 0, 0)`;
     }
 
     const now = performance.now();
@@ -245,6 +247,24 @@ export default function Videos() {
     };
   }, []);
 
+  // Intersection Observer to monitor marquee container visibility
+  useEffect(() => {
+    const marquee = marqueeRef.current;
+    if (!marquee) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isMarqueeVisibleRef.current = entry.isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(marquee);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   // requestAnimationFrame continuous auto-scroll loop with deceleration support
   useEffect(() => {
     const track = trackRef.current;
@@ -254,7 +274,8 @@ export default function Videos() {
     const autoScrollSpeed = 0.8;
 
     const loop = () => {
-      if (!isDragging.current) {
+      // Completely pause loop execution when the marquee is out of view (task/battery/performance efficiency)
+      if (isMarqueeVisibleRef.current && !isDragging.current) {
         const W = wrapWidthRef.current || (track.scrollWidth / 2);
         if (W > 0) {
           let nextTranslate = translateXRef.current + currentSpeedRef.current;
@@ -264,7 +285,8 @@ export default function Videos() {
             nextTranslate += W;
           }
           translateXRef.current = nextTranslate;
-          track.style.transform = `translate3d(${-nextTranslate}px, 0, 0)`;
+          // Round translate3d pixel value to completely eliminate subpixel rendering stutters
+          track.style.transform = `translate3d(${-Math.round(nextTranslate)}px, 0, 0)`;
         }
 
         // Softly decelerate to a stop on hover, or accelerate/decelerate to default speed on hover leave

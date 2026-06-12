@@ -22,9 +22,9 @@
 }
 
 .loader-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: clamp(40px, 5.5vw, 66px); /* Increased font size as requested */
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   color: var(--text-color);
@@ -44,7 +44,7 @@
 }
 
 .loader-subtitle {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;

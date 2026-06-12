@@ -1,4 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+/* Local Fonts - Inter */
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-LightBETA.eot');
+  src: local('Inter Light BETA'), local('Inter-LightBETA'),
+       url('/font (1)/Inter-LightBETA.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-LightBETA.woff2') format('woff2'),
+       url('/font (1)/Inter-LightBETA.woff') format('woff'),
+       url('/font (1)/Inter-LightBETA.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-Regular.eot');
+  src: local('Inter Regular'), local('Inter-Regular'),
+       url('/font (1)/Inter-Regular.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-Regular.woff2') format('woff2'),
+       url('/font (1)/Inter-Regular.woff') format('woff'),
+       url('/font (1)/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-Medium.eot');
+  src: local('Inter Medium'), local('Inter-Medium'),
+       url('/font (1)/Inter-Medium.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-Medium.woff2') format('woff2'),
+       url('/font (1)/Inter-Medium.woff') format('woff'),
+       url('/font (1)/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-SemiBold.eot');
+  src: local('Inter Semi Bold'), local('Inter-SemiBold'),
+       url('/font (1)/Inter-SemiBold.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-SemiBold.woff2') format('woff2'),
+       url('/font (1)/Inter-SemiBold.woff') format('woff'),
+       url('/font (1)/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-Bold.eot');
+  src: local('Inter Bold'), local('Inter-Bold'),
+       url('/font (1)/Inter-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-Bold.woff2') format('woff2'),
+       url('/font (1)/Inter-Bold.woff') format('woff'),
+       url('/font (1)/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-ExtraBold.eot');
+  src: local('Inter Extra Bold'), local('Inter-ExtraBold'),
+       url('/font (1)/Inter-ExtraBold.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-ExtraBold.woff2') format('woff2'),
+       url('/font (1)/Inter-ExtraBold.woff') format('woff'),
+       url('/font (1)/Inter-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-Black.eot');
+  src: local('Inter Black'), local('Inter-Black'),
+       url('/font (1)/Inter-Black.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-Black.woff2') format('woff2'),
+       url('/font (1)/Inter-Black.woff') format('woff'),
+       url('/font (1)/Inter-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-Italic.eot');
+  src: local('Inter Italic'), local('Inter-Italic'),
+       url('/font (1)/Inter-Italic.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-Italic.woff2') format('woff2'),
+       url('/font (1)/Inter-Italic.woff') format('woff'),
+       url('/font (1)/Inter-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-MediumItalic.eot');
+  src: local('Inter Medium Italic'), local('Inter-MediumItalic'),
+       url('/font (1)/Inter-MediumItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-MediumItalic.woff2') format('woff2'),
+       url('/font (1)/Inter-MediumItalic.woff') format('woff'),
+       url('/font (1)/Inter-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/font (1)/Inter-BoldItalic.eot');
+  src: local('Inter Bold Italic'), local('Inter-BoldItalic'),
+       url('/font (1)/Inter-BoldItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font (1)/Inter-BoldItalic.woff2') format('woff2'),
+       url('/font (1)/Inter-BoldItalic.woff') format('woff'),
+       url('/font (1)/Inter-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Local Fonts - Druk Cyr */
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-Bold.eot');
+  src: local('Druk Cyr Bold'), local('DrukCyr-Bold'),
+       url('/font/DrukCyr-Bold.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-Bold.woff2') format('woff2'),
+       url('/font/DrukCyr-Bold.woff') format('woff'),
+       url('/font/DrukCyr-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-Heavy.eot');
+  src: local('Druk Cyr Heavy'), local('DrukCyr-Heavy'),
+       url('/font/DrukCyr-Heavy.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-Heavy.woff2') format('woff2'),
+       url('/font/DrukCyr-Heavy.woff') format('woff'),
+       url('/font/DrukCyr-Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-HeavyItalic.eot');
+  src: local('Druk Cyr Heavy Italic'), local('DrukCyr-HeavyItalic'),
+       url('/font/DrukCyr-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-HeavyItalic.woff2') format('woff2'),
+       url('/font/DrukCyr-HeavyItalic.woff') format('woff'),
+       url('/font/DrukCyr-HeavyItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-MediumItalic.eot');
+  src: local('Druk Cyr Medium Italic'), local('DrukCyr-MediumItalic'),
+       url('/font/DrukCyr-MediumItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-MediumItalic.woff2') format('woff2'),
+       url('/font/DrukCyr-MediumItalic.woff') format('woff'),
+       url('/font/DrukCyr-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-SuperItalic.eot');
+  src: local('Druk Cyr Super Italic'), local('DrukCyr-SuperItalic'),
+       url('/font/DrukCyr-SuperItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-SuperItalic.woff2') format('woff2'),
+       url('/font/DrukCyr-SuperItalic.woff') format('woff'),
+       url('/font/DrukCyr-SuperItalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-Super.eot');
+  src: local('Druk Cyr Super'), local('DrukCyr-Super'),
+       url('/font/DrukCyr-Super.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-Super.woff2') format('woff2'),
+       url('/font/DrukCyr-Super.woff') format('woff'),
+       url('/font/DrukCyr-Super.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-Medium.eot');
+  src: local('Druk Cyr Medium'), local('DrukCyr-Medium'),
+       url('/font/DrukCyr-Medium.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-Medium.woff2') format('woff2'),
+       url('/font/DrukCyr-Medium.woff') format('woff'),
+       url('/font/DrukCyr-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Druk Cyr';
+  src: url('/font/DrukCyr-BoldItalic.eot');
+  src: local('Druk Cyr Bold Italic'), local('DrukCyr-BoldItalic'),
+       url('/font/DrukCyr-BoldItalic.eot?#iefix') format('embedded-opentype'),
+       url('/font/DrukCyr-BoldItalic.woff2') format('woff2'),
+       url('/font/DrukCyr-BoldItalic.woff') format('woff'),
+       url('/font/DrukCyr-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
 
 :root {
   --bg-color: #0A0A0B;           /* Deep Space Black */
@@ -54,27 +270,30 @@ img:hover {
 
 /* Typography */
 h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-weight: 400;
+  font-family: 'Druk Cyr', sans-serif;
+  font-weight: 900;
   line-height: 1.0;
   letter-spacing: -0.01em;
   color: var(--dark-accent);
+  text-transform: uppercase;
 }
 
 h2 {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 800; /* ExtraBold */
+  font-family: 'Druk Cyr', sans-serif;
+  font-weight: bold; /* bold corresponds to DrukCyr-Bold */
   line-height: 1.15;
   letter-spacing: -0.015em;
   color: var(--dark-accent);
+  text-transform: uppercase;
 }
 
 h3, h4 {
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600; /* SemiBold */
+  font-family: 'Druk Cyr', sans-serif;
+  font-weight: 500; /* 500 corresponds to DrukCyr-Medium */
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: var(--dark-accent);
+  text-transform: uppercase;
 }
 
 p, span, input, textarea, select {
@@ -104,7 +323,7 @@ p, span, input, textarea, select {
   padding: 16px 32px; /* Slightly increased size */
   font-size: 15px; /* Slightly increased size */
   font-weight: 500; /* Medium weight */
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   text-transform: none; /* No caps! */
   letter-spacing: normal;
   text-decoration: none;

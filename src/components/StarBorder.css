@@ -58,7 +58,7 @@
   border-radius: inherit;
   transition: var(--transition-fast);
   padding: 15px 32px; /* Standard button padding */
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 15px;
   font-weight: 500;
 }

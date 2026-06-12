@@ -31,3 +31,7 @@ dist-ssr
 .env.production.local
 .env.*
 
+# Agent tools
+.agents/
+scratch_audit.js
+skills-lock.json

@@ -175,7 +175,7 @@
 }
 
 .video-card-category {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -186,7 +186,7 @@
 }
 
 .video-card-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(16px, 1.8vw, 19px);
   font-weight: 700;
   color: #ffffff;
@@ -295,7 +295,7 @@
 }
 
 .lightbox-meta-category {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -306,7 +306,7 @@
 }
 
 .lightbox-meta-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 19px;
   font-weight: 700;
   color: #ffffff;
@@ -346,7 +346,7 @@
 }
 
 .gallery-category {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -357,9 +357,9 @@
 }
 
 .gallery-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: clamp(24px, 3.5vw, 38px);
-  font-weight: 800;
+  font-weight: 900;
   color: var(--dark-accent);
   text-transform: uppercase;
   margin: 0;
@@ -519,7 +519,7 @@
 }
 
 .placeholder-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   font-weight: 600;
   color: var(--dark-accent);

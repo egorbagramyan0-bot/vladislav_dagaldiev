@@ -36,15 +36,16 @@ function App() {
     })
     resizeObserver.observe(document.body)
 
-    // 3. Setup the requestAnimationFrame rendering loop
-    let rafId;
-    function raf(time) {
+    // 3. Setup the native requestAnimationFrame rendering loop for Lenis
+    // to align scroll calculations with the browser's refresh rate and event timestamps.
+    let rafId
+    const updateScroll = (time) => {
       lenisInstance.raf(time)
-      rafId = requestAnimationFrame(raf)
+      rafId = requestAnimationFrame(updateScroll)
     }
-    rafId = requestAnimationFrame(raf)
+    rafId = requestAnimationFrame(updateScroll)
 
-    // 3. Setup Intersection Observer for premium scroll reveals
+    // 4. Setup Intersection Observer for premium scroll reveals
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -63,7 +64,7 @@ function App() {
       elements.forEach((el) => revealObserver.observe(el))
     }, 250)
 
-    // 4. Intercept link clicks to route inside the app or scroll smoothly
+    // 5. Intercept link clicks to route inside the app or scroll smoothly
     const handleLinkClick = (e) => {
       const targetLink = e.target.closest('a')
       if (!targetLink) return

@@ -1,43 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 import { GodRays } from "@paper-design/shaders-react";
 
 import StarBorder from './StarBorder';
+import AuroraText from './AuroraText';
 
 export default function Hero() {
+  const [isShaderVisible, setIsShaderVisible] = useState(true);
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    // Dynamically mount/unmount WebGL GodRays shader based on viewport visibility
+    // to completely free up GPU/CPU when scrolled out of view.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsShaderVisible(entry.isIntersecting);
+      },
+      { threshold: 0.01 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="hero" className="hero-section">
+    <section id="hero" ref={heroRef} className="hero-section">
       {/* GodRays Background - Subtle light/dark rays overlay */}
-      <div className="hero-shader-bg" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1 }}>
-        <GodRays
-          colorBack="#00000000"
-          colors={["#a1a1aa40", "#e4e4e740", "#71717a40", "#52525b40"]}
-          colorBloom="#a1a1aa"
-          offsetX={0.85}
-          offsetY={-1}
-          intensity={0.5}
-          spotty={0.45}
-          midSize={10}
-          midIntensity={0}
-          density={0.38}
-          bloom={0.3}
-          speed={0.5}
-          scale={1.6}
-          frame={3332042.8159981333}
-          style={{
-            height: "100%",
-            width: "100%",
-            position: "absolute",
-            top: 0,
-            left: 0,
-          }}
-        />
-      </div>
+      {isShaderVisible && (
+        <div className="hero-shader-bg" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1 }}>
+          <GodRays
+            colorBack="#00000000"
+            colors={["#a1a1aa40", "#e4e4e740", "#71717a40", "#52525b40"]}
+            colorBloom="#a1a1aa"
+            offsetX={0.85}
+            offsetY={-1}
+            intensity={0.5}
+            spotty={0.45}
+            midSize={10}
+            midIntensity={0}
+            density={0.38}
+            bloom={0.3}
+            speed={0.5}
+            scale={1.6}
+            frame={3332042.8159981333}
+            style={{
+              height: "100%",
+              width: "100%",
+              position: "absolute",
+              top: 0,
+              left: 0,
+            }}
+          />
+        </div>
+      )}
 
       <div className="container hero-container">
         {/* Giant full-width title directly below the navbar - single line */}
         <h1 className="hero-giant-title fade-up-element">
-          Владислав Дагалдиев
+          <AuroraText>Владислав Дагалдиев</AuroraText>
         </h1>
         
         <div className="hero-grid">

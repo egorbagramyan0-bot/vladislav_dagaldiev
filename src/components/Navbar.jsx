@@ -30,9 +30,9 @@ export default function Navbar() {
 
   const menuItems = [
     { label: 'Обо мне', link: '#about' },
-    { label: 'Формат', link: '#about' },
-    { label: 'Стоимость', link: '#quiz' },
     { label: 'Фото / видео', link: '#videos' },
+    { label: 'Стоимость', link: '#quiz' },
+    { label: 'Отзывы', link: '#reviews' },
     { label: 'FAQ', link: '#faq' },
     { label: 'Контакты', link: '#contacts' }
   ];
@@ -362,8 +362,21 @@ export default function Navbar() {
       <header className="header staggered-menu-header" aria-label="Main navigation header">
         <div className="header__inner container">
           <a className="header__logo sm-logo-text" href="#hero" onClick={closeMenu}>
-            Владислав / Ведущий
+            Ведущий мероприятий
           </a>
+
+          {/* Desktop Navigation */}
+          <nav className="header__nav">
+            <ul className="header__nav-list">
+              {menuItems.map((it, idx) => (
+                <li key={idx} className="header__nav-item">
+                  <a className="header__nav-link" href={it.link}>
+                    {it.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           {/* Mobile contact buttons replacing the text logo */}
           <div className="header__mobile-contacts">
@@ -396,8 +409,8 @@ export default function Navbar() {
             {/* Menu Toggle Trigger */}
             <button
               ref={toggleBtnRef}
-              className="sm-toggle"
-              aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
+              className="sm-toggle mobile-menu-btn"
+              aria-label={open ? 'Close Menu / Закрыть меню' : 'Open Menu / Открыть меню'}
               aria-expanded={open}
               aria-controls="staggered-menu-panel"
               onClick={toggleMenu}

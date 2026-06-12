@@ -68,7 +68,7 @@
 
 .header__logo {
   margin-inline-end: auto;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: var(--text-logo);
   font-weight: 800; /* ExtraBold */
   line-height: 1;
@@ -104,7 +104,7 @@
   border-radius: 6px;
   color: var(--accent);
   text-decoration: none;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   transition: opacity var(--dur-fast) var(--ease-out),
@@ -247,7 +247,7 @@
   cursor: pointer;
   padding: 8px 16px;
   color: #ffffff;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -356,9 +356,9 @@
   align-items: center;
   text-decoration: none;
   color: #ffffff;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Druk Cyr', sans-serif;
   font-size: clamp(32px, 4.5vw, 54px);
-  font-weight: 700;
+  font-weight: 900;
   text-transform: uppercase;
   line-height: 1.1;
   position: relative;
@@ -396,7 +396,7 @@
 }
 
 .sm-socials-title {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -471,5 +471,91 @@
   
   .sm-socials-link {
     font-size: 14px;
+  }
+}
+
+/* Desktop Navigation */
+.header__nav {
+  display: none; /* Hidden on mobile/tablet by default */
+}
+
+@media (min-width: 992px) {
+  .header__logo {
+    margin-inline-end: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+
+  .header__logo:hover {
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    margin-inline-start: clamp(1.5rem, 1rem + 2vw, 3.5rem);
+    margin-inline-end: auto;
+    flex-shrink: 0;
+  }
+
+  .header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 0.4rem + 0.8vw, 24px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .header__nav-item {
+    display: block;
+    flex-shrink: 0;
+  }
+
+  .header__nav-link {
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(12.5px, 0.75rem + 0.15vw, 14.5px);
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: color 0.3s ease;
+    padding: 8px clamp(8px, 0.4rem + 0.5vw, 16px);
+    white-space: nowrap;
+  }
+
+  .header__nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: clamp(8px, 0.4rem + 0.5vw, 16px);
+    right: clamp(8px, 0.4rem + 0.5vw, 16px);
+    height: 2px;
+    background-color: var(--accent-gold);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .header__nav-link:hover {
+    color: var(--dark-accent);
+  }
+
+  .header__nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .header__controls {
+    flex-shrink: 0;
+  }
+
+  .sm-toggle {
+    display: none !important; /* Hide hamburger menu on desktop */
   }
 }
