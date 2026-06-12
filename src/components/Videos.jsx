@@ -559,10 +559,6 @@ export default function Videos() {
                   <span className="placeholder-desc">{activePhoto.desc}</span>
                 </div>
               </div>
-              <div className="lightbox-meta">
-                <span className="lightbox-meta-category">Фотография</span>
-                <h4 className="lightbox-meta-title">{activePhoto.title}</h4>
-              </div>
             </div>
           </div>
         </div>
