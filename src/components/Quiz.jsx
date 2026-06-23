@@ -53,9 +53,6 @@ export default function Quiz() {
     setSubmitting(true);
     setSubmitError('');
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 7000); // 7-second fetch timeout to prevent mobile network freezes
-
     try {
       const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
       const chatId = import.meta.env.TELEGRAM_CHAT_ID;
@@ -92,32 +89,73 @@ export default function Quiz() {
         `<b>Страница:</b> ${window.location.href}\n` +
         `<b>Время заявки:</b> ${timeString}`;
 
-      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: text,
-          parse_mode: 'HTML'
-        }),
-        signal: controller.signal
-      });
+      let response;
+      let success = false;
+      let responseData;
 
-      clearTimeout(timeoutId);
+      // 1. First attempt: Send via local PHP proxy (helps client bypass local network block of api.telegram.org)
+      try {
+        const proxyController = new AbortController();
+        const proxyTimeoutId = setTimeout(() => proxyController.abort(), 6000); // 6-second timeout for proxy
 
-      const data = await response.json();
+        response = await fetch('/send.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            token: botToken,
+            chat_id: chatId,
+            text: text,
+            parse_mode: 'HTML'
+          }),
+          signal: proxyController.signal
+        });
+        clearTimeout(proxyTimeoutId);
 
-      if (!response.ok || !data.ok) {
-        console.error("Telegram API Error:", data.description || "Unknown error");
-        throw new Error(data.description || "Не удалось отправить сообщение в Telegram.");
+        if (response.ok) {
+          responseData = await response.json();
+          if (responseData && responseData.ok) {
+            success = true;
+          } else {
+            console.warn("Proxy returned API error:", responseData ? responseData.description : "Empty response");
+          }
+        } else {
+          console.warn(`Proxy returned non-OK status: ${response.status}`);
+        }
+      } catch (proxyErr) {
+        console.warn("Proxy submission failed or timed out, trying fallback:", proxyErr.message || proxyErr);
+      }
+
+      // 2. Second attempt: Fallback to direct Telegram API request
+      if (!success) {
+        const fallbackController = new AbortController();
+        const fallbackTimeoutId = setTimeout(() => fallbackController.abort(), 7000); // 7-second timeout for fallback
+
+        const directUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+        response = await fetch(directUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: text,
+            parse_mode: 'HTML'
+          }),
+          signal: fallbackController.signal
+        });
+        clearTimeout(fallbackTimeoutId);
+
+        responseData = await response.json();
+        if (!response.ok || !responseData.ok) {
+          console.error("Direct Telegram API Error:", responseData ? responseData.description : "Unknown error");
+          throw new Error((responseData && responseData.description) || "Не удалось отправить сообщение в Telegram.");
+        }
       }
 
       setSubmitted(true);
     } catch (err) {
-      clearTimeout(timeoutId);
       console.error("Form submission error:", err.message || err);
       setSubmitError("Не удалось отправить заявку. Пожалуйста, попробуйте ещё раз или свяжитесь со мной напрямую.");
     } finally {
@@ -136,7 +174,7 @@ export default function Quiz() {
           <p className="quiz-subtitle">{"Ответьте на\u00a04\u00a0вопроса, зафиксируйте дату и\u00a0выберите ваш\u00a0подарок."}</p>
         </div>
 
-        <div className="quiz-form-card reveal-element">
+        <div className={`quiz-form-card reveal-element ${submitted ? 'in-view' : ''}`}>
           {!submitted ? (
             <form onSubmit={handleSubmit} style={{ margin: 0 }}>
               <div className="quiz-main-grid">
