@@ -53,6 +53,9 @@ export default function Quiz() {
     setSubmitting(true);
     setSubmitError('');
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 7000); // 7-second fetch timeout to prevent mobile network freezes
+
     try {
       const botToken = import.meta.env.TELEGRAM_BOT_TOKEN;
       const chatId = import.meta.env.TELEGRAM_CHAT_ID;
@@ -62,15 +65,20 @@ export default function Quiz() {
       }
 
       const now = new Date();
-      const timeString = now.toLocaleString('ru-RU', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        timeZone: 'Europe/Moscow'
-      });
+      let timeString = '';
+      try {
+        timeString = now.toLocaleString('ru-RU', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          timeZone: 'Europe/Moscow'
+        });
+      } catch (e) {
+        timeString = now.toString();
+      }
 
       // Construct message following the requested template and including quiz-specific answers
       const text = `<b>Новая заявка с сайта</b>\n\n` +
@@ -94,8 +102,11 @@ export default function Quiz() {
           chat_id: chatId,
           text: text,
           parse_mode: 'HTML'
-        })
+        }),
+        signal: controller.signal
       });
+
+      clearTimeout(timeoutId);
 
       const data = await response.json();
 
@@ -106,7 +117,8 @@ export default function Quiz() {
 
       setSubmitted(true);
     } catch (err) {
-      console.error("Form submission error:", err.message);
+      clearTimeout(timeoutId);
+      console.error("Form submission error:", err.message || err);
       setSubmitError("Не удалось отправить заявку. Пожалуйста, попробуйте ещё раз или свяжитесь со мной напрямую.");
     } finally {
       setSubmitting(false);
