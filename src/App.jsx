@@ -46,26 +46,7 @@ function App() {
     }
     rafId = requestAnimationFrame(updateScroll)
 
-    // 4. Setup Intersection Observer for premium scroll reveals
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view')
-          revealObserver.unobserve(entry.target)
-        }
-      })
-    }, {
-      threshold: 0.05,
-      rootMargin: '0px 0px -8% 0px'
-    })
-
-    // Delay scan slightly to let all React DOM components render completely
-    const timerId = setTimeout(() => {
-      const elements = document.querySelectorAll('.reveal-element')
-      elements.forEach((el) => revealObserver.observe(el))
-    }, 250)
-
-    // 5. Intercept link clicks to route inside the app or scroll smoothly
+    // 4. Intercept link clicks to route inside the app or scroll smoothly
     const handleLinkClick = (e) => {
       const targetLink = e.target.closest('a')
       if (!targetLink) return
@@ -115,18 +96,43 @@ function App() {
     document.addEventListener('click', handleLinkClick)
     window.addEventListener('popstate', handlePopState)
 
-    // 6. Clean up on unmount
+    // 5. Clean up on unmount
     return () => {
       cancelAnimationFrame(rafId)
-      clearTimeout(timerId)
       clearTimeout(resizeTimeout)
       lenisInstance.destroy()
-      revealObserver.disconnect()
       resizeObserver.disconnect()
       document.removeEventListener('click', handleLinkClick)
       window.removeEventListener('popstate', handlePopState)
     }
   }, [])
+
+  // 6. Setup Intersection Observer for premium scroll reveals on path change
+  // (ensures elements are re-observed when components remount on navigation back to '/')
+  useEffect(() => {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view')
+          revealObserver.unobserve(entry.target)
+        }
+      })
+    }, {
+      threshold: 0.05,
+      rootMargin: '0px 0px -8% 0px'
+    })
+
+    // Delay scan slightly to let all React DOM components render completely
+    const timerId = setTimeout(() => {
+      const elements = document.querySelectorAll('.reveal-element')
+      elements.forEach((el) => revealObserver.observe(el))
+    }, 250)
+
+    return () => {
+      clearTimeout(timerId)
+      revealObserver.disconnect()
+    }
+  }, [currentPath])
 
   return (
     <>
