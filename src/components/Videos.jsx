@@ -355,6 +355,10 @@ export default function Videos() {
   return (
     <section id="videos" className="videos-section">
       <div className="container">
+        <div className="videos-header reveal-element">
+          <span className="videos-label">Media</span>
+          <h2 className="videos-title">Фото и видео</h2>
+        </div>
         <div className="videos-carousel-wrapper reveal-element">
           {showNavigation && (
             <>
@@ -418,7 +422,7 @@ export default function Videos() {
         <div className="container">
           <div className="gallery-header">
             <span className="gallery-category">Галерея</span>
-            <h3 className="gallery-title">{"Атмосфера в\u00a0деталях"}</h3>
+            <h2 className="gallery-title">{"Атмосфера в\u00a0деталях"}</h2>
           </div>
         </div>
         

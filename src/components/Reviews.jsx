@@ -101,7 +101,7 @@ export default function Reviews() {
                   {/* Visual Portrait */}
                   <div className="review-visual">
                     <div className="review-image-wrapper">
-                      <img src={item.img} alt={item.names} className="review-image" />
+                      <img src={item.img} alt={item.names || "Отзыв о ведущем Владиславе Дагалдиеве"} className="review-image" />
                     </div>
                   </div>
                   {/* Quote content */}
@@ -111,7 +111,7 @@ export default function Reviews() {
                       {item.quote}
                     </blockquote>
                     <div className="review-author-meta">
-                      {item.names && <h4 className="review-author-names">{item.names}</h4>}
+                      {item.names && <h3 className="review-author-names">{item.names}</h3>}
                     </div>
                   </div>
                 </div>

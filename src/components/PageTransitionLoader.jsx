@@ -53,7 +53,7 @@ export default function PageTransitionLoader() {
   return (
     <div className={`loader-overlay ${fadeOut ? 'fade-out' : ''}`}>
       <div className="loader-content">
-        <h1 className="loader-name">ВЛАДИСЛАВ ДАГАЛДИЕВ</h1>
+        <div className="loader-name">ВЛАДИСЛАВ ДАГАЛДИЕВ</div>
         <div className="loader-progress-container">
           <div className="loader-progress-bar"></div>
         </div>

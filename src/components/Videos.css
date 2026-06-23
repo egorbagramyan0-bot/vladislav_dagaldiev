@@ -617,3 +617,36 @@
   }
 }
 
+/* Videos section header styling (reused from gallery header style) */
+.videos-header {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.videos-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.videos-title {
+  font-family: 'Druk Cyr', sans-serif;
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 900;
+  color: var(--dark-accent);
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.15;
+}
+
+@media (max-width: 768px) {
+  .videos-header {
+    margin-bottom: 24px;
+  }
+}
+

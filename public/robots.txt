@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /privacy
+Disallow: /consent
+
+Sitemap: https://vladislav-dagaldiev.ru/sitemap.xml
