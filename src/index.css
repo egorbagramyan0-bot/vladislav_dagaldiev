@@ -377,14 +377,15 @@ p, span, input, textarea, select {
 /* Custom Intersection Observer Reveal Animations */
 .reveal-element {
   opacity: 0;
-  transform: translateY(18px); /* Soft vertical entry */
+  transform: translateY(18px) translateZ(0); /* Force GPU Layer */
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .reveal-element.in-view {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
 /* Lenis Smooth Scroll Recommended Styles */
@@ -424,4 +425,20 @@ html.lenis, html.lenis body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-gold-hover);
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .reveal-element {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }

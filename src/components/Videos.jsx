@@ -79,15 +79,6 @@ export default function Videos() {
     { id: 13, src: '/gallery/Банкет-79_resized.webp', title: 'Финал', desc: 'Красивое и\u00a0запоминающееся завершение праздника' }
   ];
 
-  const checkScroll = () => {
-    if (sliderRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
-      setCanScrollLeft(scrollLeft > 10);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
-      setShowNavigation(scrollWidth > clientWidth + 10);
-    }
-  };
-
   const scroll = (direction) => {
     if (sliderRef.current) {
       const { scrollLeft, clientWidth } = sliderRef.current;
@@ -96,9 +87,10 @@ export default function Videos() {
         ? scrollLeft - scrollAmount 
         : scrollLeft + scrollAmount;
       
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       sliderRef.current.scrollTo({
         left: targetScroll,
-        behavior: 'smooth'
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
       });
     }
   };
@@ -230,16 +222,32 @@ export default function Videos() {
   useEffect(() => {
     const slider = sliderRef.current;
     if (slider) {
-      slider.addEventListener('scroll', checkScroll);
-      checkScroll();
+      let ticking = false;
+      const throttledCheckScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (sliderRef.current) {
+              const { scrollLeft, scrollWidth, clientWidth } = sliderRef.current;
+              setCanScrollLeft(scrollLeft > 10);
+              setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 10);
+              setShowNavigation(scrollWidth > clientWidth + 10);
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      slider.addEventListener('scroll', throttledCheckScroll);
+      throttledCheckScroll();
       
       // Delay initial check to ensure DOM rendering completes
-      const timer = setTimeout(checkScroll, 300);
+      const timer = setTimeout(throttledCheckScroll, 300);
 
-      window.addEventListener('resize', checkScroll);
+      window.addEventListener('resize', throttledCheckScroll);
       return () => {
-        slider.removeEventListener('scroll', checkScroll);
-        window.removeEventListener('resize', checkScroll);
+        slider.removeEventListener('scroll', throttledCheckScroll);
+        window.removeEventListener('resize', throttledCheckScroll);
         clearTimeout(timer);
       };
     }
@@ -283,6 +291,11 @@ export default function Videos() {
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      return;
+    }
 
     let animationFrameId;
     const autoScrollSpeed = 0.8;

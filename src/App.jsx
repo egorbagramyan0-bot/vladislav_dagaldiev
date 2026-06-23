@@ -15,13 +15,15 @@ import ConsentPage from './components/ConsentPage'
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
   useEffect(() => {
-    // 1. Initialize Lenis Smooth Scroll with premium expo-out easing curve
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // 1. Initialize Lenis Smooth Scroll with premium expo-out easing curve (disabled for reduced motion)
     const lenisInstance = new Lenis({
-      duration: 1.2,
+      duration: prefersReducedMotion ? 0 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 0.9,
       syncTouch: false, // Keep native touch scrolling on mobile to respect gestures
       infinite: false,
@@ -41,10 +43,14 @@ function App() {
     // to align scroll calculations with the browser's refresh rate and event timestamps.
     let rafId
     const updateScroll = (time) => {
-      lenisInstance.raf(time)
+      if (!prefersReducedMotion) {
+        lenisInstance.raf(time)
+      }
       rafId = requestAnimationFrame(updateScroll)
     }
-    rafId = requestAnimationFrame(updateScroll)
+    if (!prefersReducedMotion) {
+      rafId = requestAnimationFrame(updateScroll)
+    }
 
     // 4. Intercept link clicks to route inside the app or scroll smoothly
     const handleLinkClick = (e) => {
@@ -65,7 +71,8 @@ function App() {
             if (targetEl && lenisInstance) {
               lenisInstance.scrollTo(targetEl, {
                 offset: 0,
-                duration: 1.4,
+                immediate: prefersReducedMotion,
+                duration: prefersReducedMotion ? 0 : 1.4,
                 easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
               })
             }
@@ -76,7 +83,8 @@ function App() {
             e.preventDefault()
             lenisInstance.scrollTo(targetEl, {
               offset: 0,
-              duration: 1.4,
+              immediate: prefersReducedMotion,
+              duration: prefersReducedMotion ? 0 : 1.4,
               easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
             })
           }
