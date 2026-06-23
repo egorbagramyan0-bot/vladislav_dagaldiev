@@ -70,13 +70,13 @@ export default function Videos() {
     { id: 4, src: '/gallery/c23ed83a-6fa7-4f68-963a-4f1be6b55fc1.webp', title: 'Внимание', desc: 'Индивидуальный подход к\u00a0каждому гостю' },
     { id: 5, src: '/gallery/d2ccf93b-f40e-4301-9e54-e7582bcf1225.webp', title: 'Презентация', desc: 'Современные и\u00a0яркие визуальные решения' },
     { id: 6, src: '/gallery/dba17edd-4515-434a-8d58-0ac597c91f04.webp', title: 'Коннект', desc: 'Лёгкое общение и\u00a0дружеская атмосфера' },
-    { id: 7, src: '/gallery/Банкет-253_resized.webp', title: 'Атмосфера', desc: 'Стильное оформление вечернего зала' },
-    { id: 8, src: '/gallery/Банкет-256_resized.webp', title: 'Вечер', desc: 'Уютное и\u00a0теплое семейное торжество' },
-    { id: 9, src: '/gallery/Банкет-325_resized.webp', title: 'Динамика', desc: 'Держим темп и\u00a0настроение праздника' },
-    { id: 10, src: '/gallery/Банкет-398_resized.webp', title: 'Интерактив', desc: 'Улыбки, живой смех и\u00a0сплочение гостей' },
-    { id: 11, src: '/gallery/Банкет-52_resized.webp', title: 'Событие', desc: 'Яркие эмоции на\u00a0протяжении всего вечера' },
-    { id: 12, src: '/gallery/Банкет-73_resized.webp', title: 'Танцпол', desc: 'Искренние эмоции героев вечера на\u00a0танцах' },
-    { id: 13, src: '/gallery/Банкет-79_resized.webp', title: 'Финал', desc: 'Красивое и\u00a0запоминающееся завершение праздника' }
+    { id: 7, src: '/gallery/banket-253.webp', title: 'Атмосфера', desc: 'Стильное оформление вечернего зала' },
+    { id: 8, src: '/gallery/banket-256.webp', title: 'Вечер', desc: 'Уютное и\u00a0теплое семейное торжество' },
+    { id: 9, src: '/gallery/banket-325.webp', title: 'Динамика', desc: 'Держим темп и\u00a0настроение праздника' },
+    { id: 10, src: '/gallery/banket-398.webp', title: 'Интерактив', desc: 'Улыбки, живой смех и\u00a0сплочение гостей' },
+    { id: 11, src: '/gallery/banket-52.webp', title: 'Событие', desc: 'Яркие эмоции на\u00a0протяжении всего вечера' },
+    { id: 12, src: '/gallery/banket-73.webp', title: 'Танцпол', desc: 'Искренние эмоции героев вечера на\u00a0танцах' },
+    { id: 13, src: '/gallery/banket-79.webp', title: 'Финал', desc: 'Красивое и\u00a0запоминающееся завершение праздника' }
   ];
 
   const scroll = (direction) => {
