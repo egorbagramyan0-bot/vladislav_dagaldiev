@@ -45,7 +45,7 @@
   letter-spacing: 0.01em;
   line-height: 0.85;
   margin-top: -20px; /* Pull the title slightly higher towards the navbar */
-  margin-bottom: 60px; /* Balanced margin for the 1.5x vertical scale */
+  margin-bottom: 40px; /* Reduced from 60px to bring the photo and content closer to the title */
   width: 100%;
   text-align: left;
   white-space: nowrap; /* Forces text to remain on a single line */
@@ -71,7 +71,7 @@
   line-height: 1.25;
   color: var(--text-color); /* Primary dark text */
   position: relative;
-  top: -235px; /* Visual shift up only, without pulling up the rest of the layout */
+  top: -245px; /* Shifted slightly more up (from -235px) to decrease the gap to the title */
   margin-bottom: 28px; /* Balanced gap before the description starts */
   text-align: left;
   text-transform: uppercase;
