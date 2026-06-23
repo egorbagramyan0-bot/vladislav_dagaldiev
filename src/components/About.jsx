@@ -18,7 +18,7 @@ export default function About() {
           {/* Left: Portrait */}
           <div className="about-visual reveal-element">
             <div className="about-image-wrapper">
-              <img src="/vladik.png" alt="Владислав Дагалдиев" className="about-image" />
+              <img src="/vladik.webp" alt="Владислав Дагалдиев" className="about-image" />
               <div className="about-image-border"></div>
             </div>
           </div>

@@ -38,45 +38,45 @@ export default function Videos() {
       title: "Зачем ходить на\u00a0встречу с\u00a0ведущим",
       category: "Полезно знать",
       videoUrl: "/video/video1.mp4",
-      posterUrl: "/pre1.jpg"
+      posterUrl: "/pre1.webp"
     },
     {
       id: 2,
       title: "Что ведущий должен делать на\u00a0встрече",
       category: "Подготовка",
       videoUrl: "/video/video2.mp4",
-      posterUrl: "/pre2.jpg"
+      posterUrl: "/pre2.webp"
     },
     {
       id: 3,
       title: "Какие интерактивы будут на\u00a0мероприятии",
       category: "Программа вечера",
       videoUrl: "/video/video3.mp4",
-      posterUrl: "/pre3.jpg"
+      posterUrl: "/pre3.webp"
     },
     {
       id: 4,
       title: "Церемония",
       category: "Подарок",
       videoUrl: "/video/ceremony.mp4",
-      posterUrl: "/vid4.jpg"
+      posterUrl: "/vid4.webp"
     }
   ];
 
   const photoSlides = [
-    { id: 1, src: '/gallery/6932b3bd-d4a6-4984-b892-e95dacbf01d8.jpg', title: 'Эмоции', desc: 'Живой смех и\u00a0искренние улыбки гостей' },
-    { id: 2, src: '/gallery/81de910e-fd63-4473-9677-58d0d891eba7.jpg', title: 'Детали', desc: 'Каждая деталь имеет значение' },
-    { id: 3, src: '/gallery/a3f9d227-c77e-423c-b4d1-ed58b1fa9bb1.jpg', title: 'Регистрация', desc: 'Волнительный момент в\u00a0начале события' },
-    { id: 4, src: '/gallery/c23ed83a-6fa7-4f68-963a-4f1be6b55fc1.jpg', title: 'Внимание', desc: 'Индивидуальный подход к\u00a0каждому гостю' },
-    { id: 5, src: '/gallery/d2ccf93b-f40e-4301-9e54-e7582bcf1225.jpg', title: 'Презентация', desc: 'Современные и\u00a0яркие визуальные решения' },
-    { id: 6, src: '/gallery/dba17edd-4515-434a-8d58-0ac597c91f04.jpg', title: 'Коннект', desc: 'Лёгкое общение и\u00a0дружеская атмосфера' },
-    { id: 7, src: '/gallery/Банкет-253_resized.jpg', title: 'Атмосфера', desc: 'Стильное оформление вечернего зала' },
-    { id: 8, src: '/gallery/Банкет-256_resized.jpg', title: 'Вечер', desc: 'Уютное и\u00a0теплое семейное торжество' },
-    { id: 9, src: '/gallery/Банкет-325_resized.jpg', title: 'Динамика', desc: 'Держим темп и\u00a0настроение праздника' },
-    { id: 10, src: '/gallery/Банкет-398_resized.jpg', title: 'Интерактив', desc: 'Улыбки, живой смех и\u00a0сплочение гостей' },
-    { id: 11, src: '/gallery/Банкет-52_resized.jpg', title: 'Событие', desc: 'Яркие эмоции на\u00a0протяжении всего вечера' },
-    { id: 12, src: '/gallery/Банкет-73_resized.jpg', title: 'Танцпол', desc: 'Искренние эмоции героев вечера на\u00a0танцах' },
-    { id: 13, src: '/gallery/Банкет-79_resized.jpg', title: 'Финал', desc: 'Красивое и\u00a0запоминающееся завершение праздника' }
+    { id: 1, src: '/gallery/6932b3bd-d4a6-4984-b892-e95dacbf01d8.webp', title: 'Эмоции', desc: 'Живой смех и\u00a0искренние улыбки гостей' },
+    { id: 2, src: '/gallery/81de910e-fd63-4473-9677-58d0d891eba7.webp', title: 'Детали', desc: 'Каждая деталь имеет значение' },
+    { id: 3, src: '/gallery/a3f9d227-c77e-423c-b4d1-ed58b1fa9bb1.webp', title: 'Регистрация', desc: 'Волнительный момент в\u00a0начале события' },
+    { id: 4, src: '/gallery/c23ed83a-6fa7-4f68-963a-4f1be6b55fc1.webp', title: 'Внимание', desc: 'Индивидуальный подход к\u00a0каждому гостю' },
+    { id: 5, src: '/gallery/d2ccf93b-f40e-4301-9e54-e7582bcf1225.webp', title: 'Презентация', desc: 'Современные и\u00a0яркие визуальные решения' },
+    { id: 6, src: '/gallery/dba17edd-4515-434a-8d58-0ac597c91f04.webp', title: 'Коннект', desc: 'Лёгкое общение и\u00a0дружеская атмосфера' },
+    { id: 7, src: '/gallery/Банкет-253_resized.webp', title: 'Атмосфера', desc: 'Стильное оформление вечернего зала' },
+    { id: 8, src: '/gallery/Банкет-256_resized.webp', title: 'Вечер', desc: 'Уютное и\u00a0теплое семейное торжество' },
+    { id: 9, src: '/gallery/Банкет-325_resized.webp', title: 'Динамика', desc: 'Держим темп и\u00a0настроение праздника' },
+    { id: 10, src: '/gallery/Банкет-398_resized.webp', title: 'Интерактив', desc: 'Улыбки, живой смех и\u00a0сплочение гостей' },
+    { id: 11, src: '/gallery/Банкет-52_resized.webp', title: 'Событие', desc: 'Яркие эмоции на\u00a0протяжении всего вечера' },
+    { id: 12, src: '/gallery/Банкет-73_resized.webp', title: 'Танцпол', desc: 'Искренние эмоции героев вечера на\u00a0танцах' },
+    { id: 13, src: '/gallery/Банкет-79_resized.webp', title: 'Финал', desc: 'Красивое и\u00a0запоминающееся завершение праздника' }
   ];
 
   const checkScroll = () => {
@@ -290,7 +290,7 @@ export default function Videos() {
     const loop = () => {
       // Completely pause loop execution when the marquee is out of view (task/battery/performance efficiency)
       if (isMarqueeVisibleRef.current && !isDragging.current) {
-        const W = wrapWidthRef.current || (track.scrollWidth / 2);
+        const W = wrapWidthRef.current;
         if (W > 0) {
           let nextTranslate = translateXRef.current + currentSpeedRef.current;
           if (nextTranslate >= W) {

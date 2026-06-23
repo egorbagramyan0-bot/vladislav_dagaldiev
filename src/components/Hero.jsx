@@ -109,11 +109,11 @@ export default function Hero() {
           <div className="hero-image-pane fade-up-element delay-1">
             <div className="hero-images-collage">
               <div className="hero-image-wrapper wrapper-primary">
-                <img src="/hero10.png" alt="Владислав Дагалдиев" className="hero-img img-primary" />
+                <img src="/hero10.webp" alt="Владислав Дагалдиев" className="hero-img img-primary" />
                 <div className="hero-image-frame"></div>
               </div>
               <div className="hero-image-wrapper wrapper-secondary">
-                <img src="/hero9.jpg" alt="Владислав Дагалдиев" className="hero-img img-secondary" />
+                <img src="/hero9.webp" alt="Владислав Дагалдиев" className="hero-img img-secondary" />
                 <div className="hero-image-frame"></div>
               </div>
             </div>
