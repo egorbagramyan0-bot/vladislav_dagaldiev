@@ -41,6 +41,10 @@ export default function Quiz() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!formData.consent) {
+      alert("Пожалуйста, ознакомьтесь с Политикой конфиденциальности и дайте согласие на обработку персональных данных.");
+      return;
+    }
     if (!formData.name || !formData.phone) {
       alert("Пожалуйста, заполните имя и телефон.");
       return;
@@ -261,7 +265,7 @@ export default function Quiz() {
                     required
                   />
                   <label htmlFor="consent" className="consent-label">
-                    {"Я\u00a0даю согласие на\u00a0обработку персональных данных в\u00a0соответствии с\u00a0"}<a href="#privacy" className="privacy-link">{"Политикой конфиденциальности"}</a>
+                    {"Я\u00a0ознакомился с\u00a0"}<a href="/privacy" className="privacy-link">{"Политикой конфиденциальности"}</a>{" и\u00a0даю "}<a href="/consent" className="privacy-link">{"согласие на\u00a0обработку персональных данных"}</a>
                   </label>
                 </div>
               </div>

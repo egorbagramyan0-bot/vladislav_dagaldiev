@@ -10,6 +10,7 @@ import Reviews from './components/Reviews'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
 import PrivacyPage from './components/PrivacyPage'
+import ConsentPage from './components/ConsentPage'
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
@@ -130,9 +131,11 @@ function App() {
   return (
     <>
       <PageTransitionLoader />
-      {currentPath !== '/privacy' && <Navbar />}
+      {currentPath !== '/privacy' && currentPath !== '/consent' && <Navbar />}
       {currentPath === '/privacy' ? (
         <PrivacyPage setCurrentPath={setCurrentPath} />
+      ) : currentPath === '/consent' ? (
+        <ConsentPage setCurrentPath={setCurrentPath} />
       ) : (
         <main>
           <Hero />
